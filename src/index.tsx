@@ -1,15 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { GlobalStyles } from './styles';
+
+import { ThemeProvider } from 'styled-components';
+
+import { GlobalStyles, theme } from './styles';
 import { unregister, reportWebVitals } from './core';
 
 ReactDOM.render(
-  <>
+  <ThemeProvider theme={theme}>
     <GlobalStyles/>
     <div>
-      Fucking workd
+      Hello world
     </div>
-  </>,
+  </ThemeProvider>,
   document.getElementById('root')
 );
 
