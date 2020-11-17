@@ -1,8 +1,13 @@
 {
-    "editor.codeActionsOnSave": {
-        "source.fixAll": true
-    },
+  "[typescript]": {
     "editor.formatOnSave": true,
-    "javascript.format.enable": true,
-    "material-icon-theme.activeIconPack": "react_redux"
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true
+    }
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "javascript.format.enable": true,
+  "material-icon-theme.activeIconPack": "react_redux"
 }
