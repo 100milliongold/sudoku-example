@@ -30,7 +30,24 @@ function fillGrid(grid: GRID) {
     col = i % 9
     if (grid[row][col] === 0) {
       shuffle(numbers)
-      break
+
+      for (const value of numbers) {
+
+        if (grid[row].includes(value)) {
+          let isNotInCol = false;
+          for (let i = 0; i < 9; i++) {
+            if(value === grid[i][col]) { isNotInCol = false;}
+          }
+          if(isNotInCol){
+
+          }
+
+          // 그리드 행에 없는지 확인하고 그리드 열에 없는지 확인
+          grid[row][col] = value
+        }
+
+        break
+      }
     }
   }
 
