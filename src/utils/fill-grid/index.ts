@@ -1,5 +1,6 @@
 import { GRID, NUMBERS } from '../../typings'
-import { shuffle } from 'utils'
+import { shuffle, isInRow, isInCol } from 'utils'
+import { theme } from 'styles'
 
 const gridExample: GRID = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -32,18 +33,22 @@ function fillGrid(grid: GRID) {
       shuffle(numbers)
 
       for (const value of numbers) {
+        if (!isInRow({ grid, row, value })) {
+          // 해당 배열은 정사각형의 배열인가?
+          if (!isInCol({ col, grid, value })) {
+            // 그리드 행에 없는지 확인하고 그리드 열에 없는지 확인
 
-        if (grid[row].includes(value)) {
-          let isNotInCol = false;
-          for (let i = 0; i < 9; i++) {
-            if(value === grid[i][col]) { isNotInCol = false;}
+            const square = [
+              [0, 0, 0],
+              [0, 0, 0],
+              [0, 0, 0],
+            ]
+            //..
+            grid[row][col] = value
+
+            // 만약 값이 다채웠졌으면 종료
+            // 배열을 적용하고 다시 실행
           }
-          if(isNotInCol){
-
-          }
-
-          // 그리드 행에 없는지 확인하고 그리드 열에 없는지 확인
-          grid[row][col] = value
         }
 
         break
