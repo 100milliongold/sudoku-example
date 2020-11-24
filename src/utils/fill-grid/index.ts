@@ -38,7 +38,9 @@ function fillGrid(grid: GRID) {
           if (!isInCol({ col, grid, value })) {
             // 그리드 행에 없는지 확인하고 그리드 열에 없는지 확인
             const square = identifySquare({ col, grid, row })
-            if (isInSquare({ square, value })) {
+            if (!isInSquare({ square, value })) {
+              if (true) return true
+              else if(fillGrid(grid)) return true
             }
             //..
             grid[row][col] = value
