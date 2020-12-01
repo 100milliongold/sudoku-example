@@ -1,5 +1,12 @@
 import { GRID, NUMBERS } from '../../typings'
-import { shuffle, isInRow, isInCol, isInSquare, identifySquare, checkGrid } from 'utils'
+import {
+  shuffle,
+  isInRow,
+  isInCol,
+  isInSquare,
+  identifySquare,
+  checkGrid,
+} from 'utils'
 
 const gridExample: GRID = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -45,7 +52,6 @@ function fillGrid(grid: GRID) {
               else if (fillGrid(grid)) return true
               // 만약 값이 다채웠졌으면 종료
               // 배열을 적용하고 다시 실행
-
             }
           }
       }
@@ -56,6 +62,5 @@ function fillGrid(grid: GRID) {
 
   grid[row][col] = 0
 }
-
 
 export default fillGrid

@@ -1,11 +1,11 @@
-import { GRID } from "typings";
-import { fillGrid } from "utils";
+import { GRID } from 'typings'
+import { fillGrid } from 'utils'
 
 /**
  * 완전한 스도쿠 격자
  */
 function createFullGrid(): GRID {
-      const grid: GRID = [
+  const grid: GRID = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -20,7 +20,7 @@ function createFullGrid(): GRID {
   ]
   fillGrid(grid)
 
-  return grid;
+  return grid
 }
 
 export default createFullGrid
