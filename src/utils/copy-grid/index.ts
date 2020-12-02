@@ -1,11 +1,11 @@
-import { GRID, INDEX } from "typings";
+import { GRID, INDEX } from 'typings'
 
 /**
  * 스도쿠 퍼즐 복사
- * @param grid 
+ * @param grid
  */
-function copyGrid(grid:GRID) {
-    const gridCopy: GRID  = [
+function copyGrid(grid: GRID) {
+  const gridCopy: GRID = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -19,11 +19,10 @@ function copyGrid(grid:GRID) {
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
   ]
 
-  for (let r:INDEX = 0; r < 9; r++)
-    for (let c:INDEX = 0; c < 9; c++)
-        gridCopy[r][c] = grid[r][c]
+  for (let r: INDEX = 0; r < 9; r++)
+    for (let c: INDEX = 0; c < 9; c++) gridCopy[r][c] = grid[r][c]
 
-  return gridCopy;
+  return gridCopy
 }
 
 export default copyGrid
