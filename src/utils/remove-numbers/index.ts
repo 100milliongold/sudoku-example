@@ -1,5 +1,6 @@
+import global from 'global'
 import { GRID } from 'typings'
-import { getRandomIndex } from 'utils'
+import { getRandomIndex, copyGrid } from 'utils'
 /**
  * 이것은 기본적으로 전체 그리드에서 숫자를 제거하여 스도쿠 퍼즐을 생성합니다.
  * @param grid 9 X 9 크기의 스도쿠 퍼즐
@@ -19,6 +20,10 @@ function removeNumbers(grid: GRID, attemps = 5): GRID {
     grid[row][col] = 0
 
     // copy grid
+
+    const gridCopy = copyGrid(grid)
+
+    global.counter = 0
 
     // set a global counter
     // attempt to solve the grid
