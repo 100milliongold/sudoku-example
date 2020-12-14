@@ -6,23 +6,25 @@ import { AnyAction, Dispatch } from 'redux'
 // import { GRID } from 'typings'
 
 import Block from './block'
-import { INDEX, BLOCK_COORDS, NUMBERS, N } from 'typings'
+import { INDEX, BLOCK_COORDS, GRID, NUMBERS, N } from 'typings'
 import { Container, Row } from './styles'
 import { createGrid, fillBlock, IReducer, selectBlock } from 'reducers'
 
 interface IState {
   selectedBlock?: BLOCK_COORDS
   selectedValue?: N
+  solvedGrid?: GRID
 }
 
 const Grid: FC = () => {
   const state = useSelector<IReducer, IState>(
-    ({ selectedBlock, workingGrid }) => ({
+    ({ selectedBlock, solvedGrid, workingGrid }) => ({
       selectedBlock,
       selectedValue:
         workingGrid && selectedBlock
           ? workingGrid[selectedBlock[0]][selectedBlock[1]]
           : 0,
+      solvedGrid,
     })
   )
   const dispatch = useDispatch<Dispatch<AnyAction>>()
@@ -33,7 +35,7 @@ const Grid: FC = () => {
       if (state.selectedBlock && state.selectedValue === 0)
         dispatch(fillBlock(n, state.selectedBlock))
     },
-    [dispatch, state.selectedBlock]
+    [dispatch, state.selectedBlock, state.selectedValue]
   )
 
   function moveDown() {
@@ -96,8 +98,8 @@ const Grid: FC = () => {
    * 빈 배열이면 compoenetDidMount 와 유사하게 작동
    */
   useEffect(() => {
-    create()
-  }, [create])
+    if (!state.solvedGrid) create()
+  }, [create, state.solvedGrid])
 
   // 체크 포인트
   return (
